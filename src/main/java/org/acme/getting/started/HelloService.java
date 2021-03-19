@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 
 
 @Path("/greeting")
-@RegisterRestClient
+@RegisterRestClient(baseUri = "http://backend-user1-common.apps.cluster-3323.3323.example.opentlc.com")
 public interface HelloService {
 
     @GET

@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
-@Path("/greeting")
+@Path("/apiv1")
 public class GreetingResource {
 
     @Inject
@@ -22,10 +22,10 @@ public class GreetingResource {
     @Inject
     @RestClient
     HelloService helloService;
-
+    
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    @Path("/hello/{name}")
+    @Path("/greeting/{name}")
     public String hello(@PathParam String name) {
         return service.greeting(backendService.getByName(name));
     }
@@ -34,7 +34,8 @@ public class GreetingResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/message/{name}")
     public String message(@PathParam String name) {
-        return service.greeting(helloService.getMessage(name));
+        return "Message : " + helloService.getMessage(name);
     }
+
     
 }

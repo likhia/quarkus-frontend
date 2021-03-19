@@ -15,10 +15,10 @@ public class GreetingResourceTest {
     @Test
     public void testHelloEndpoint() {
         given()
-                .when().get("/hello")
+                .when().get("/greeting")
                 .then()
                 .statusCode(200)
-                .body(is("hello"));
+                .body(is("Hello Testing"));
     }
 
     @Test
@@ -27,10 +27,10 @@ public class GreetingResourceTest {
         String name = "sg";
         given()
                 .pathParam("name", name)
-                .when().get("/hello/greeting/{name}")
+                .when().get("/greeting/hello/{name}")
                 .then()
                 .statusCode(200)
-                .body(is("hello " + "Singapore"));
+                .body(is("Hello " + "Singapore"));
     }
 
 }
